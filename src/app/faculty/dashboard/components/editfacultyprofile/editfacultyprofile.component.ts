@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MessageService } from 'src/app/faculty/dashboard/message-service.service';
 
 
 @Component({
@@ -8,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./editfacultyprofile.component.css']
 })
 export class EditfacultyprofileComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  message=[{
+    username:'',
+    email:'',
+    date:'',
+    subject:'',
+    message:'', 
+    expanded: false
+  }];
+  toggle(expanded: boolean) {
+    expanded = !expanded;
   }
 
+
+  constructor(private messageService:MessageService) { }
+
+  ngOnInit(): void {
+    this.messageService.getMessages().subscribe((data)=>{
+      this.message=JSON.parse(JSON.stringify(data));
+  })
+
+  }
 }

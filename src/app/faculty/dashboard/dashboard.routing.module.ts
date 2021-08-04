@@ -12,6 +12,7 @@ const routes: Routes = [
   children:[
       {path:'dashboard',component:DashboardComponent},
       {path:'jobpost',component:JobpostComponent},
+      {path:'Messages',component:EditfacultyprofileComponent}
     
   ]},
   {path:'**',redirectTo:'/dashboard',pathMatch:'full'},

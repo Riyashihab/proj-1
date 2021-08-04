@@ -17,7 +17,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JobpostComponent } from './components/jobpost/jobpost.component';
 import { DashboardRoutingModule } from './dashboard.routing.module';
 import { EditfacultyprofileComponent } from './components/editfacultyprofile/editfacultyprofile.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -35,6 +35,7 @@ import { EditfacultyprofileComponent } from './components/editfacultyprofile/edi
     MatDatepickerModule,
     FormsModule,
   ReactiveFormsModule,
+  MatExpansionModule,
   // NG Material Modules
   MatSidenavModule,
   MatIconModule,
