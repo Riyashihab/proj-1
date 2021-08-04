@@ -19,3 +19,15 @@ export class UserModel{
        
     ){}
 }
+export class Faculty{
+    userid:any;
+    username : any;;
+    lname: any;
+    fname:any;
+    user_email : any;
+    password : any;
+    phone_number : any;
+    skills: any;
+    dateofjoining: any;
+    coursehandling: any;
+ }

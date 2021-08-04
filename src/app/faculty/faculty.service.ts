@@ -5,10 +5,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FacultyService {
+  [x: string]: any;
   faculties= {
     userid:'',
     firstname : '',
-    lastname: '',
+    lname: '',
     user_email : '',
     password : '',
     phone_number : '',
@@ -42,11 +43,11 @@ export class FacultyService {
     return this.http.delete("http://localhost:3000/remove/"+id)
 
   }
-  editUser(product:any)
+  editUser(faculties:any)
   {
     console.log('client update')
-    console.log(product);
-    return this.http.put("http://localhost:3000/update",product)
+    console.log(faculties);
+    return this.http.put("http://localhost:3000/update",faculties)
     .subscribe(data =>{console.log(data)})
   }
   readmore(id:any){

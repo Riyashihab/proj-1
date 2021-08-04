@@ -32,8 +32,11 @@ function verifyToken(req, res, next) {
     if(!payload) {
       return res.status(401).send('Unauthorized request')    
     }
-    req.userId = payload.subject   //verified
-    console.log("firstiddddddddeee",req.userId);
+    
+    req.userId = payload.subject  //verified
+    
+
+    //console.log("firstiddddddddeee",req.userId);
 
     next()
   }
@@ -55,11 +58,15 @@ app.post('/login', async(req, res) => {
   const username1 = userData.uname;
   const password1 = userData.password;
   
+  
+
+  
      
  
      const userVal = await (Userdata).findOne({user_email : username1 });
      const userVal3 = await (Employerdata).findOne({user_email : username1 });
      const userVal2 = await (Alumnidata).findOne({user_email : username1 });
+     
      
     if(userVal){
       if (!userVal) {
@@ -77,13 +84,13 @@ app.post('/login', async(req, res) => {
            //jwt token passing on successful login
         // let payload = {subject: username1+password1}
       
-        userType = userVal.Role;
-       // userId=userVal.userid;
       
-      // console.log("secondidee",userid);
+        userType = userVal.Role;
+        userId=userVal._id;
+   
        
         // let payload = {subject: userVal.username+userVal.password}
-        let payload ={userType:userType,username:userVal.username}
+        let payload ={userType:userType,username:userVal.username,userid:userId}
         
         let token = jwt.sign(payload, 'secretKey')
         res.status(200).send({token})
@@ -164,6 +171,7 @@ app.post('/newuser', function (req,res) {
        phone_number: req.body.user.phone,
        password : req.body.user.password,
        
+       
 
       //image:new_img
   }
@@ -208,21 +216,20 @@ app.put('/update', (req, res) => {
   console.log(req.body);
   console.log(req.body._id);
 
-  id=req.body.userid,
+  id=req.body._id,
   userid = req.body.userid,
-    username = req.body.firstname,
+    username = req.body.fname,
     user_email = req.body.user_email,
-    lastname=req.body.lastname,
+    lastname=req.body.lname,
     phone_number = req.body.phone_number,
     skills=req.body.skills,
     dateofjoining=req.body.dateofjoining,
     coursehandling=req.body.coursehandling,
     user_status = "Approved"
-
   Userdata.findByIdAndUpdate({ "_id":id },
     {
       $set: {
-        "userid":userid,
+        "userid":id,
         "username": username,
         "lastname":lastname,
         "user_email": user_email,

@@ -11,9 +11,9 @@ const LoginSchema = new Schema({
     user_email : String,
     password : String,
     phone_number : String,
-    skills:String,
-    dateofjoining:String,
-    coursehandling:String,
+    skills:{type: String,default: "",required: false},
+    dateofjoining:{type: String,default: "01/01/2010",required: false},
+    coursehandling:{type: String,default: "",required: false},
     role : {type: Number,default: 0,required: true} ,
     status:{type: String,default: "Unapproved",required: true},
     Role : {type: String,default: "Faculty",required: true}

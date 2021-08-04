@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FacultyRoutingModule } from './faculty-routing.module';
 import { FacultyComponent } from './faculty.component';
 
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +19,7 @@ import { FacultyComponent } from './faculty.component';
   imports: [
     CommonModule,
     FacultyRoutingModule,
+    FormsModule
     
   
   ],

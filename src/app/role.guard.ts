@@ -21,6 +21,7 @@ export class RoleGuard implements CanActivate {
      this.token = localStorage.getItem('token')
     const tokenPayLoad = this.jwtHelper.decodeToken(this.token)
     console.log(tokenPayLoad.userType);
+    
 
 
 //||tokenPayLoad.userType !==
